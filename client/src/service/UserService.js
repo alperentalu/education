@@ -1,7 +1,19 @@
-
-
-
+// import {action} from "mobx"
 // import {gatewayInstance} from "../interceptors/request"
+// import React from 'react';
+
+// export default function UserService() {
+//     function login ()  {
+//         gatewayInstance.post('/login',{password: "bowie", email: "db@ssfr.fr"}).then(res => {
+//             console.log(res)
+//         })
+//     }
+// }
+
+
+
+
+
 
 // const alp = () => {
 //   // axios.get("http://localhost:5000/api/user").then((res) => {
