@@ -1,7 +1,7 @@
 import Home from "../views/Home";
 import Login from "../views/Login";
 import SecondPage from "../views/SecondPage";
-
+import SecondPagev2 from "../views/SecondPagev2";
 
 export const menuRouter = [
     {
@@ -16,7 +16,6 @@ export const menuRouter = [
         break: true
     },
     {
-        
         name: "SecondPage",
         id: 2,
         url: "/secondpage",
@@ -28,19 +27,28 @@ export const menuRouter = [
         break: true
     },
     {
+        name: "SecondPage Version 2",
+        id: 3,
+        url: "/secondpage/version2",
+        page :<SecondPagev2 key={3}/>,
+        menu: true,
+        roles: [],
+        isExact: true,
+        icon: "",
+        break: true
+    },
+    {
         
         name: "Login",
-        id: 3,
+        id: 4,
         url: "/login",
-        page :<Login key={3}/>,
+        page :<Login key={4}/>,
         menu: false,
         roles: [],
         isExact: true,
         icon: "",
         break: true
     },
+    
+    
 ]
-
-export const selectedMenu = (item) => {
-    console.log(item)
-}
