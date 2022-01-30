@@ -64,3 +64,19 @@ app.post('/api/register', async (req, res) => {
 		res.json({ status: 'error', error: 'Duplicate email' })
 	}
 })
+
+app.get('/api/user', async (req,res) => {
+	try{
+		User.find({}, function(err, users) {
+			var userMap = {};
+		
+			users.forEach(function(user) {
+			  userMap[user._id] = user;
+			});
+		
+			res.send(userMap);  
+		  })
+	} catch(err) {
+		res.json({status: 'error', error: 'Users not found'})
+	}
+});
