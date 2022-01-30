@@ -7,10 +7,10 @@ const cors = require('cors')
 const bcrypt = require('bcryptjs')
 const User = require('./models/user.model')
 const jwt = require('jsonwebtoken')
-// const authRoutes = require('./routes/api/auth');
 app.use(cors())
 app.use(express.json())
 connectDB();
+const checkAuth = require('./middleware/checkauth');
 
 app.get('/', (req, res) => res.send('Hello world!'));
 
@@ -65,7 +65,7 @@ app.post('/api/register', async (req, res) => {
 	}
 })
 
-app.get('/api/user', async (req,res) => {
+app.get('/api/user',checkAuth, async (req,res) => {
 	try{
 		User.find({}, function(err, users) {
 			var userMap = {};
