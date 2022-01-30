@@ -1,8 +1,12 @@
 import React from 'react';
-
+import {getUser} from "../service/HomeService"
 export default function Home() {
+  const getUsers = () => {
+    console.log("çalıştı")
+    getUser();
+  }
   return <div>
-      <h1>Alp Eren</h1>
+     <button onClick={getUsers}>Click Me</button>
   </div>;
 }
 

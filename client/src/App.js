@@ -5,7 +5,7 @@ import Education from './main/Education';
 
 function App() {
   return <div>
-    <Education/>
+    <Education isLogin={localStorage.getItem('token') ? true : false}/>
   </div>;
 }
 export default  App

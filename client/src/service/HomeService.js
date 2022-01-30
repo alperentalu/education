@@ -1,5 +1,5 @@
 // import {action} from "mobx"
-// import {gatewayInstance} from "../interceptors/request"
+import {gatewayInstance} from "../interceptors/request"
 // import React from 'react';
 
 // export default function UserService() {
@@ -15,10 +15,11 @@
 
 
 
-// const alp = () => {
-//   // axios.get("http://localhost:5000/api/user").then((res) => {
-//   //   console.log(res.data.token)
-//   // })
+export const getUser = () => {
+    gatewayInstance.get("http://localhost:5000/api/user").then((res) => {
+    console.log(res.data)
+  })
+}
 //   gatewayInstance.post(`/api/register`,{ name: "david",
 //   password: "bowie",
 //   email: "db@ssfr.fr"

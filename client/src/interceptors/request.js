@@ -9,11 +9,9 @@ const gatewayInstance = axios.create({
   
   
   gatewayInstance.interceptors.request.use((config) => {
-      console.log(config);
       
-      console.log("req çalıştı")
       config.headers = {
-              Authorization : "Bearer alperentalu",
+              Authorization : `Bearer ${localStorage.getItem('token')}`,
           };
           return config;
         })
