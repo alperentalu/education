@@ -16,6 +16,7 @@ export default function Login() {
   const [isEnterSuccess, setEnterSuccess] = useState(true);
 
   const getLogin =  () =>  {
+    //Login hatası varsa class değişecek
     const isSuccess = getLoginReq(email, password);
     setEnterSuccess(isSuccess);
 
