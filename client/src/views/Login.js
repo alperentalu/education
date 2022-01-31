@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {alperen} from "../service/LoginService"
+import {getLoginReq} from "../service/LoginService"
 
 
  
@@ -15,7 +15,7 @@ export default function Login() {
   const [password, setPasswordValue] = useState("");
 
   const getLogin =  () =>  {
-    alperen(email, password);
+    getLoginReq(email, password);
    
     }
   const emailOnChange = (e) => {
