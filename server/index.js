@@ -30,8 +30,10 @@ app.post('/login', async (req, res) => {
 	try {
 	  // Check for existing user
 	  const user = await User.findOne({ email });
-	  if (!user) throw Error('User does not exist');
-  
+	  if (!user) {
+		return res.status(205).json({msg: "Users undefined"})
+	  }
+
 	  const isMatch = await bcrypt.compare(password, user.password);
 	  if (!isMatch) throw Error('Invalid credentials');
   

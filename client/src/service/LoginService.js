@@ -1,11 +1,15 @@
 
 
 import {gatewayInstance} from "../interceptors/request";
-import { Navigate } from "react-router-dom"; 
 
-export const  getLoginReq = (email, password) => {
+export const  getLoginReq =  (email, password) => {
      gatewayInstance.post('/login',{password: password, email: email}).then(res => {
-        localStorage.setItem('token', res.data.token)
-        window.location.href = "/"
+        if(res.status === 200){
+            console.log("başarılı")
+            localStorage.setItem('token', res.data.token)
+            window.location.href = "/"
+        }else {
+           return true
+        }
     })
 }   
