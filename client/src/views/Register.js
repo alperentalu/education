@@ -21,7 +21,8 @@ export default function Register() {
     const [userName, setUserNameValue] = useState("");
     const [isEnterSuccess, setEnterSuccess] = useState(true);
   
-    const getRegister =  () =>  {
+    const getRegister =  (event) =>  {
+      event.preventDefault();
     const isSuccess = getRegisterReq(userName, email, password);
        setEnterSuccess(isSuccess);
   
@@ -94,12 +95,6 @@ const theme = createTheme();
                   id="password"
                   onChange={passwordOnChange}
                   autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>

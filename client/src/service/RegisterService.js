@@ -1,16 +1,12 @@
 import {gatewayInstance} from "../interceptors/request";
+import axios from "axios"
 
 export const  getRegisterReq =  (userName, email, password) => {
-     gatewayInstance.get('/api/register',{userName: userName , password: password, email: email}).then(res => {
+    const form = JSON.stringify({username: userName, email: email, password: password})
+     axios.post('http://localhost:5000/api/register',form,{headers: {'content-type': 'application/json'}}).then(res => {
        
         console.log(res)
 
-        // if(res.status === 200){
-            
-            //  localStorage.setItem('token', res.data.token)
-            //  window.location.href = "/"
-        // }else {
-        //    return true
-        // }
     })
+    console.log(form);
 }   

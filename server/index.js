@@ -54,14 +54,15 @@ app.post('/login', async (req, res) => {
   });
 
 app.post('/api/register', async (req, res) => {
+	const { email, password, username } = req.body;
 	try {
-		const newPassword = await bcrypt.hash(req.body.password, 10)
+		const newPassword = await bcrypt.hash(password, 10)
 		await User.create({
-			name: req.body.name,
-			email: req.body.email,
+			name: username,
+			email: email,
 			password: newPassword,
 		})
-		res.json({ status: 'ok' })
+		res.status(200).json({ status: 'ok' })
 	} catch (err) {
 		res.json({ status: 'error', error: 'Duplicate email' })
 	}
