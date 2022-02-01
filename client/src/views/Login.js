@@ -16,7 +16,6 @@ export default function Login() {
   const [isEnterSuccess, setEnterSuccess] = useState(true);
 
   const getLogin =  () =>  {
-    //Login hatası varsa class değişecek
     const isSuccess = getLoginReq(email, password);
     setEnterSuccess(isSuccess);
 
@@ -67,7 +66,7 @@ export default function Login() {
                 required
                 value={email}
                 fullWidth
-                style={isEnterSuccess ? {color: 'white'} : {backgroundColor: 'red', position: 'absolute'}}
+                error={isEnterSuccess ? false : true}
                 id="email"
                 onChange={emailOnChange}
                 label="Email Address"
@@ -79,6 +78,7 @@ export default function Login() {
                 margin="normal"
                 required
                 value={password}
+                error={isEnterSuccess ? false : true}
                 fullWidth
                 name="password"
                 onChange={passwordOnChange}

@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -65,6 +63,7 @@ const theme = createTheme();
                 <TextField
                   autoComplete="given-name"
                   name="userName"
+                  error={isEnterSuccess ? false : true}
                   required
                   fullWidth
                   id="userName"
@@ -76,10 +75,10 @@ const theme = createTheme();
               <Grid item xs={12}>
                 <TextField
                   required
+                  error={isEnterSuccess ? false : true}
                   fullWidth
                   id="email"
                   onChange={emailOnChange}
-                  style={isEnterSuccess ? {color: 'white'} : {backgroundColor: 'red', position: 'absolute'}}
                   label="Email Address"
                   name="email"
                   autoComplete="email"
@@ -89,6 +88,7 @@ const theme = createTheme();
                 <TextField
                   required
                   fullWidth
+                  error={isEnterSuccess ? false : true}
                   name="password"
                   label="Password"
                   type="password"

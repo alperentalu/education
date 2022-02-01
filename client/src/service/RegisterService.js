@@ -1,4 +1,3 @@
-import {gatewayInstance} from "../interceptors/request";
 import axios from "axios"
 
 export const  getRegisterReq =  (userName, email, password) => {
