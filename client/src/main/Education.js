@@ -7,7 +7,7 @@ function Education(props) {
     const {isLogin} = props
     return   <div>
         <div>
-        {isLogin ? <RenderRoute/> : <Login/>}
+        <RenderRoute isLogin={isLogin}/>
         </div>
     </div>
 }
