@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Paper, Box, Grid, Typography} from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {alperen} from "../service/LoginService"
+import {getLoginReq} from "../service/LoginService"
 
 
  
@@ -13,10 +13,13 @@ export default function Login() {
 
   const [email, setEmailValue] = useState("");
   const [password, setPasswordValue] = useState("");
+  const [isEnterSuccess, setEnterSuccess] = useState(true);
 
   const getLogin =  () =>  {
-    alperen(email, password);
-   
+    //Login hatası varsa class değişecek
+    const isSuccess = getLoginReq(email, password);
+    setEnterSuccess(isSuccess);
+
     }
   const emailOnChange = (e) => {
     setEmailValue(e.target.value)
@@ -56,7 +59,7 @@ export default function Login() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+            <p>Sign In</p> 
             </Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
@@ -64,6 +67,7 @@ export default function Login() {
                 required
                 value={email}
                 fullWidth
+                style={isEnterSuccess ? {color: 'white'} : {backgroundColor: 'red', position: 'absolute'}}
                 id="email"
                 onChange={emailOnChange}
                 label="Email Address"
