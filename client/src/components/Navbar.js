@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppBar,Box,Toolbar,IconButton,Typography,Menu,Container,Avatar,Button,Tooltip,MenuItem} from '@mui/material';
+import {AppBar,Box,Toolbar,IconButton,Typography,Menu,Container,Avatar,Tooltip,MenuItem} from '@mui/material';
 import MenuIcon from "@mui/icons-material/Menu";
 import {menuRouter} from "../routes/Router";
 import {Link} from "react-router-dom";
@@ -84,8 +84,7 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {menuRouter.map((item) => {
-                if(item.menu === true){
-              return <Link
+              return item.menu === true &&  <Link
                 exact="true"
                 style={{marginLeft: '10px', textDecoration: 'none', color: 'white'}}
                 to= {{
@@ -95,8 +94,8 @@ const Navbar = () => {
               >
                 {item.name}
               </Link>
+                })
                 }
-                })}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
