@@ -18,7 +18,8 @@ export default function RenderRoute () {
                 {isLogin && <Navbar/> }
                    <Routes> 
                        {menuRouter.map(item => { 
-                           return  <Route exact  key={"menu-item"+item.id} path={item.url} element={ item.name !== "Login" || item.name !== 'Register'  ? <RequireAuth>{item.page}</RequireAuth> : item.page} />
+                           return  <Route exact  key={"menu-item"+item.id} path={item.url} element={ item.name !== "Login" && item.name !== 'Register'  ?  <RequireAuth>{item.page}</RequireAuth> : item.page} />
+                          //  
                           })
                       }    
                    </Routes>
